@@ -135,12 +135,47 @@ Keterangan:
 
 Dengan menggunakan argpartition, kita mengambil sejumlah nilai `k` tertinggi dari similarity data (dalam kasus ini: `dataframe cosine_sim_df`). Kemudian, mengambil data dari bobot (tingkat kesamaan) tertinggi ke terendah. Lalu menghapus `place_name` yang yang dicari agar tidak muncul dalam daftar rekomendasi.
 
+Hasil: Sistem merekomendasikan 5 tempat wisata, dan 4 sesuai selera user berdasarkan input →
+
+```
+Input: 'Candi Prambanan', category = Budaya
+Dataset:
+0 - Candi Ratu Buko                        → Budaya ✅
+1 - Taman Budaya Yogyakarta                → Budaya ✅
+2 - Monumen Yogya Kembali                  → Budaya ✅
+3 - Museum Benteng Vredeburg Yogyakarta    → Budaya ✅
+4 - Bukit Panguk Kediwung                  → Budaya ✅
+```
+
+$$
+Precision@5=\dfrac{5}{5}= 1.00
+$$
+
+Hasil Top-5-Content-Based Filtering
+![image](https://github.com/user-attachments/assets/906037d5-b697-496d-b13d-735f388292c8)
+
+
 Content-Based Filtering memiliki kelebihan mudah dalam pengimplementasiannya dan tidak memerlukan interaksi dari pengguna sebelumnya. Sedangkan kekurangannya adalah model ini tidak dapat menangkap preferensi pengguna secara personal
 
 
 2. Pemodelan dengan Collaborative Filtering menggunakan pendekatan **embedding matrix** dan **dot product**.
 
-Collaborative Filtering dilakukan menggunakan pendekatan matrix factorization (SVD dari scikit-surprise) untuk mempelajari preferensi pengguna berdasarkan rating. Model SVD mampu menangkap hubungan laten antara user dan destinasi. Model dievaluasi dengan menggunakan metrik RMSE antara rating prediksi dan rating aktual. Untuk merekomendasikan tempat wisata yang belum pernah dikunjungi oleh pengguna, dibuat variabel place_not_visited. Rekomendasi ini dilakukan hanya pada destinasi yang belum pernah dikunjungi pengguna. Pada tahap ini, model menghitung skor kecocokan antara pengguna dan tempat wisata dengan **teknik embedding**. Selanjutnya, lakukan operasi **perkalian dot product** antara embedding user dan place. Selain itu, kita juga dapat menambahkan *bias* untuk setiap user dan place. Skor kecocokan ditetapkan dalam skala [0,1] dengan fungsi **aktivasi sigmoid**. Model ini menggunakan Binary Crossentropy untuk menghitung loss function, Adam (Adaptive Moment Estimation) sebagai optimizer, dan root mean squared error (RMSE) sebagai metrics evaluation. Kelebihan dari Collaborative Filtering adalah dapat memahami preferensi pengguna dan rekomendasinya personal. Kekurangan dari model ini membutuhkan interaksi pengguna yang cukup banyak
+Collaborative Filtering dilakukan menggunakan pendekatan matrix factorization (SVD dari scikit-surprise) untuk mempelajari preferensi pengguna berdasarkan rating. Model SVD mampu menangkap hubungan laten antara user dan destinasi. Model dievaluasi dengan menggunakan metrik RMSE antara rating prediksi dan rating aktual. Untuk merekomendasikan tempat wisata yang belum pernah dikunjungi oleh pengguna, dibuat variabel place_not_visited. Rekomendasi ini dilakukan hanya pada destinasi yang belum pernah dikunjungi pengguna. Pada tahap ini, model menghitung skor kecocokan antara pengguna dan tempat wisata dengan **teknik embedding**. Selanjutnya, lakukan operasi **perkalian dot product** antara embedding user dan place. Selain itu, kita juga dapat menambahkan *bias* untuk setiap user dan place. Skor kecocokan ditetapkan dalam skala [0,1] dengan fungsi **aktivasi sigmoid**. Model ini menggunakan Binary Crossentropy untuk menghitung loss function, Adam (Adaptive Moment Estimation) sebagai optimizer, dan root mean squared error (RMSE) sebagai metrics evaluation. 
+
+Hasil Collaborative Filtering
+
+![model_metrics](https://github.com/user-attachments/assets/d1317297-bbf7-4562-b972-cd91aa664206)
+
+Perhatikanlah, proses training model cukup smooth dan model konvergen pada epochs sekitar 50. Dari proses ini, diperoleh nilai error akhir sebesar sekitar 0.31 dan error pada data validasi sebesar 0.35. Nilai tersebut cukup bagus untuk sistem rekomendasi.
+
+Jumlah Rating Tertinggi Pengguna
+![image](https://github.com/user-attachments/assets/d94c2fd2-86c7-41e9-b2c5-1f01d1d753ca)
+
+Top 10 Rekomendasi Wisata
+![image](https://github.com/user-attachments/assets/d5ef8461-d99e-4a5a-b1fd-fe6b4b2ebd97)
+
+
+Kelebihan dari Collaborative Filtering adalah dapat memahami preferensi pengguna dan rekomendasinya personal. Kekurangan dari model ini membutuhkan interaksi pengguna yang cukup banyak
 
 
 
