@@ -10,7 +10,7 @@ Selain membantu wisatawan, sistem rekomendasi ini juga dapat berperan dalam mend
 
 **Sumber**:
 - Badan Pusat Statistik. (2024). Statistik wisatawan nusantara 2023. [Statistik Wisatawan Nusantra 2023](https://www.bps.go.id/id/publication/2024/05/23/9bbe16f7f850126353cea5d2/statistik-wisatawan-nusantara-2023.html)
-- Kementerian Pariwisata dan Ekonomi Kreatif. (2023). Jumlah kunjungan wisman hingga Oktober 2023 capai 9,5 juta, lampaui target tahunan 8,5 juta kunjungan [Siaran Pers Kemenparekraf 2023]([https://www.thinkwithgoogle.com/_qs/documents/18369/google_travel_report_2023.pdf](https://kemenparekraf.go.id/berita/siaran-pers-jumpa-pers-akhir-tahun-kemenparekraf-paparkan-capaian-kinerja-di-sepanjang-2023))
+- Kementerian Pariwisata dan Ekonomi Kreatif. (2023). Jumlah kunjungan wisman hingga Oktober 2023 capai 9,5 juta, lampaui target tahunan 8,5 juta kunjungan [Siaran Pers Kemenparekraf 2023](https://kemenparekraf.go.id/berita/siaran-pers-jumpa-pers-akhir-tahun-kemenparekraf-paparkan-capaian-kinerja-di-sepanjang-2023)
 - Google. (2023). Google travel trends Indonesia 2023: Bagaimana orang Indonesia merencanakan perjalanan mereka. [Google Travel Report 2023](https://www.thinkwithgoogle.com/_qs/documents/18369/google_travel_report_2023.pdf)
 
 
